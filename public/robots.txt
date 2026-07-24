@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/
+Disallow: /_next/
+
+# Host
+Host: https://ger4pol.site
+
+# Sitemaps
+Sitemap: https://ger4pol.site/sitemap.xml

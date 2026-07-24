@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Dark navy background with rounded corners -->
+  <rect width="64" height="64" rx="14" fill="#0f172a"/>
+  <!-- German flag stripe top -->
+  <rect x="8" y="8" width="48" height="7" rx="2" fill="#1a1a1a"/>
+  <!-- German flag stripe middle -->
+  <rect x="8" y="15" width="48" height="7" rx="0" fill="#dc2626"/>
+  <!-- German flag stripe bottom - but partial, merges into speech bubble -->
+  <rect x="8" y="22" width="48" height="5" rx="0" fill="#f59e0b"/>
+  <!-- Speech bubble body -->
+  <rect x="10" y="26" width="44" height="26" rx="7" fill="#f59e0b"/>
+  <!-- Speech bubble tail -->
+  <polygon points="18,52 30,52 24,62" fill="#f59e0b"/>
+  <!-- "G" letter inside bubble -->
+  <text x="32" y="46" fill="#0f172a" font-size="22" font-weight="900" text-anchor="middle" font-family="Georgia, serif">G</text>
+</svg>
