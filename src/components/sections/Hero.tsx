@@ -28,8 +28,19 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero-bg grid-dots relative min-h-screen flex items-center overflow-hidden">
-      {/* Radial decoration */}
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{ background: "radial-gradient(ellipse at 20% 50%, #1a2744 0%, #0f172a 60%, #060c1a 100%)" }}
+    >
+      {/* Dot grid overlay — separate layer so it doesn't clobber the gradient */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+      {/* Radial colour accents */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-600/8 rounded-full blur-3xl" />
