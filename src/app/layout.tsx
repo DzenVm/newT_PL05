@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -55,7 +56,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://ger4pol.site" },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html lang="pl" className={`${jakarta.variable} h-full antialiased`}>
       <head>
@@ -63,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="canonical" href="https://ger4pol.site" />
         <meta name="theme-color" content="#0f172a" />
         <script
+          nonce={nonce}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
