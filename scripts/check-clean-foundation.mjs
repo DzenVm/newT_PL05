@@ -70,10 +70,16 @@ assert.doesNotMatch(
   "server-side TDS integration referenced from browser code",
 );
 
-const routingFiles = [
-  path.join(root, "proxy.ts"),
-  ...(await collectFiles(path.join(root, "lib", "tds"))),
-];
+const routingFiles = [];
+for (const proxyPath of [path.join(root, "proxy.ts"), path.join(root, "src", "proxy.ts")]) {
+  try {
+    await access(proxyPath);
+    routingFiles.push(proxyPath);
+  } catch {
+    // Next.js permits the proxy convention under src/.
+  }
+}
+routingFiles.push(...(await collectFiles(path.join(root, "lib", "tds"))));
 const routingCorpus = (
   await Promise.all(
     routingFiles.map(async (file) => `${file}\n${await readFile(file, "utf8")}`),
